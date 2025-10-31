@@ -1,0 +1,85 @@
+// pages/_app.tsx
+import { AppProps } from 'next/app';
+import '../styles/globals.css';
+
+function MyApp({ Component, pageProps }: AppProps) {
+  return <Component {...pageProps} />;
+}
+
+export default MyApp;
+
+// pages/index.tsx
+import Link from 'next/link';
+
+const Home = () => {
+  return (
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
+      <h1 className="text-4xl font-bold">Welcome to My Portfolio</h1>
+      <nav className="mt-4">
+        <Link href="/about" className="text-blue-500 hover:underline">About Me</Link>
+        <Link href="/projects" className="ml-4 text-blue-500 hover:underline">Projects</Link>
+        <Link href="/contact" className="ml-4 text-blue-500 hover:underline">Contact</Link>
+      </nav>
+    </div>
+  );
+};
+
+export default Home;
+
+// pages/about.tsx
+const About = () => {
+  return (
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
+      <h1 className="text-3xl font-bold">About Me</h1>
+      <p className="mt-4">I am a computer science student passionate about web development.</p>
+    </div>
+  );
+};
+
+export default About;
+
+// pages/projects.tsx
+const Projects = () => {
+  return (
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
+      <h1 className="text-3xl font-bold">Projects</h1>
+      <ul className="mt-4">
+        <li className="mt-2">Project 1</li>
+        <li className="mt-2">Project 2</li>
+        <li className="mt-2">Project 3</li>
+      </ul>
+    </div>
+  );
+};
+
+export default Projects;
+
+// pages/contact.tsx
+const Contact = () => {
+  return (
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
+      <h1 className="text-3xl font-bold">Contact Me</h1>
+      <form className="mt-4">
+        <input type="text" placeholder="Your Name" className="border p-2" required />
+        <input type="email" placeholder="Your Email" className="border p-2 mt-2" required />
+        <textarea placeholder="Your Message" className="border p-2 mt-2" required></textarea>
+        <button type="submit" className="bg-blue-500 text-white p-2 mt-2">Send</button>
+      </form>
+    </div>
+  );
+};
+
+export default Contact;
+
+// styles/globals.css
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+// next.config.js
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  reactStrictMode: true,
+};
+
+module.exports = nextConfig;
